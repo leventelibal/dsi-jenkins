@@ -4,8 +4,10 @@ pipeline{
         stage("Run Command"){
             steps{
                 sh '''
+                set +xe
                 echo Hello
-                yum install htttpd -y 
+                ech hello
+                sudo yum install htttpd -y 
                 ping -c 4 google.com
                 '''
             }
