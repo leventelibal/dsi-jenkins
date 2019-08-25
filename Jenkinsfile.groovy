@@ -34,9 +34,7 @@ pipeline{
         stage("Write to a file"){
             steps{
                 ws("tmp/"){
-                    writeFile 
-                    test: "Test" , 
-                    file: "TestFile"
+                    writeFile test: "Test" , file: "TestFile"
                 }
             }
         }
