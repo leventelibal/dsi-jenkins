@@ -57,6 +57,12 @@ pipeline{
                 }
             }
         }
+        stage("Pull Repo"){
+            steps{
+                git ("https://github.com/leventelibal/packer.git")
+                sh "ls"
+            }
+        }
 
     }
 }
