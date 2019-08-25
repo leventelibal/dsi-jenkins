@@ -65,13 +65,18 @@ pipeline{
         }
         stage("Build Image"){
             steps{
-                sh "packer build updated/updated.json"
+               // sh "packer build updated/updated.json"
+               echo "hello"
             }
         }
 
     }
     post{
       success {
-          mail to:  leventelibal@gmail.com, subject: “job”, body: “packer terraform jobs completed
+          echo "Done"
+      }
+      failure { 
+        mail to:  leventelibal@gmail.com, subject: “job”, body: “packer terraform jobs completed"
+    }
   }
 }
