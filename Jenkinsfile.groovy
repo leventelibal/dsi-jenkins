@@ -70,4 +70,8 @@ pipeline{
         }
 
     }
+    post{
+      success {
+          mail to:  leventelibal@gmail.com, subject: “job”, body: “packer terraform jobs completed
+  }
 }
