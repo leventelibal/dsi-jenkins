@@ -34,11 +34,12 @@ pipeline{
         stage("Write to a file"){
             steps{
                 ws("tmp/"){
-                    writeFile text: "Test" , file: "TestFile"
+                    writeFile text: "Test", file: "TestFile"
+                    sh "cat TestFile"
                 }
             }
         }
-                stage("Download Packer"){
+        stage("Download Packer"){
             steps{
                 ws("tmp/"){
                     script {
@@ -57,26 +58,20 @@ pipeline{
                 }
             }
         }
-        stage("Pull Repo"){
-            steps{
-                git ("https://github.com/leventelibal/packer.git")
-                sh "ls"
-            }
-        }
+    }
         stage("Build Image"){
             steps{
-               // sh "packer build updated/updated.json"
-               echo "hello"
+                //sh "packer build updated/updated.json"
+                echo "Hello"
             }
         }
-
     }
     post{
-      success {
-          echo "Done"
-      }
-      failure { 
-        mail to:  leventelibal@gmail.com, subject: “job”, body: “packer terraform jobs completed"
+        success {
+            echo "Done"
+        }
+        failure {
+            mail to:  "leventelibal@gmail.com", subject: "job", body: "job completed"
+        }
     }
-  }
 }
