@@ -63,6 +63,11 @@ pipeline{
                 sh "ls"
             }
         }
+        stage("Build Image"){
+            steps{
+                sh "packerbuild updated/updated.json"
+            }
+        }
 
     }
 }
