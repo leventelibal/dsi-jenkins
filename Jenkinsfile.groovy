@@ -6,8 +6,8 @@ pipeline{
                 sh '''
                 set +xe
                 echo Hello
-                ech error
-                sudo yum install httpd wget unzip -y 
+                ech  Error
+                sudo yum install httpd wget unzip -y
                 ping -c 4 google.com
                 '''
             }
@@ -20,17 +20,16 @@ pipeline{
                         if (exists) {
                             sh "unzip -o terraform_0.12.7_linux_amd64.zip"
                             sh "sudo mv terraform /bin"
-                            "
+                            sh "terraform version"
                         } else {
                             sh "wget https://releases.hashicorp.com/terraform/0.12.7/terraform_0.12.7_linux_amd64.zip"
-                            sh "unzip -o terrafsh "terraform versionorm_0.12.7_linux_amd64.zip"
+                            sh "unzip -o terraform_0.12.7_linux_amd64.zip"
                             sh "sudo mv terraform /bin"
-                            sh "terraform version
+                            sh "terraform version"
                         }
                     }
                 }
             }
         }
     }
-    
 }
