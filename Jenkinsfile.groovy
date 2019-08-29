@@ -1,6 +1,7 @@
 
 pipeline{
     agent any
+    parameters {string(defaultValue: "plan", description: "plan/apply'', name: 'USER_ACTION')}
     stages{
         stage("Run Command"){
             steps{
@@ -76,8 +77,16 @@ pipeline{
             steps{
                 ws("terraform/"){
                     sh "terraform get"
+        }
+        stage("Build VPC "){
+            steps{
+                ws("terraform/"){
                     sh "terraform init"
-                    sh "terraform plan -var-file=dev.tfvars"
+        }
+        stage("Build VPC "){
+            steps{
+                ws("terraform/"){
+                    sh "terraform  ${USER_ACTION} -var-file=dev.tfvars"
                 }
             }
         }
