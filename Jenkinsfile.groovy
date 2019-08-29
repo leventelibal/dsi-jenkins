@@ -91,3 +91,5 @@ pipeline{
             mail to:  "leventelibal@gmail.com", subject: "job", body: "job completed"
         }
     }
+  }
+}
