@@ -68,7 +68,7 @@ pipeline{
         stage("Clone VPC Repo"){
             steps{
                 ws("terraform/"){
-                    git "https://github.com/farrukh90/infrastructure_april.git"
+                    git "https://github.com/leventelibal/infrasture_terrafom.git"
                 }
             }
         }
@@ -77,6 +77,7 @@ pipeline{
                 ws("terraform/"){
                     sh "terraform get"
                     sh "terraform init"
+                    sh "terraform plan -var-file=dev.tfvars"
                 }
             }
         }
