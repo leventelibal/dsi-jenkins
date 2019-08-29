@@ -82,7 +82,6 @@ pipeline{
                 }
             }
         }
-    }
     post{
         success {
             echo "Done"
@@ -92,4 +91,3 @@ pipeline{
         }
     }
   }
-}
