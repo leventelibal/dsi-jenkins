@@ -65,6 +65,23 @@ pipeline{
                 echo "Hello"
             }
         }
+                stage("Clone VPC"){
+            steps{
+                ws("terraform/"){
+                    git "https://github.com/leventelibal/infrasture_terrafom.git"
+                    sh "pwd"
+                    sh "ls"
+                }
+            }
+        }
+        stage("Build VPC"){
+            steps{
+                ws("terraform/"){
+                    sh "terraform paln --var-file-dev.tfvars"
+
+                }
+            }
+        }
     }
     post{
         success {
