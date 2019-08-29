@@ -77,7 +77,7 @@ pipeline{
         stage("Build VPC"){
             steps{
                 ws("terraform/"){
-                    sh "terraform paln --var-file-dev.tfvars"
+                    sh "terraform init"
 
                 }
             }
